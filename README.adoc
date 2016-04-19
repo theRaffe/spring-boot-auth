@@ -1,0 +1,17 @@
+# Spring Boot Authentication Example
+
+This is a demonstration of a custom REST authentication API.
+The app tries to add the CustomAuthenicationProvider to the
+list of AuthenticationProviders, but Boot ignores it completely
+and creates the UUID-password `DaoAuthenticationProvider`.
+
+## Usage
+
+Launch the application and execute the curl command below from a
+terminal to test the login API call.
+
+Expected behaviour is that the `CustomAuthenticationProvider` will
+be used, so that the username/password `admin/admin` will work. Instead
+Spring tries to use the default `DaoAuthenticationProvider`.
+
+
