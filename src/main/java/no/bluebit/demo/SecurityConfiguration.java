@@ -7,6 +7,7 @@
 	import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 	import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 	import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+	import no.bluebit.demo.auth.provider.CustomAuthenticationProvider;
 
 	@Configuration
 	@EnableWebSecurity
@@ -27,6 +28,14 @@
 		protected void configure(HttpSecurity http) throws Exception {
 			http
 				.authorizeRequests()
+					.antMatchers(                        
+                        "/",
+                        "/*.html",
+                        "/favicon.ico",
+                        "/**/*.html",
+                        "/**/*.css",
+                        "/**/*.js"
+                	).permitAll()
 					.antMatchers("/api/users/login").permitAll()    // Permit access for all to login REST service
 					.antMatchers("/").permitAll()				    // Neccessary to permit access to default document
 				.anyRequest().authenticated().and()				    // All other requests require authentication
