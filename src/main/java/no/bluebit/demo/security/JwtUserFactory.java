@@ -1,12 +1,12 @@
-package com.izzi.security;
+package no.bluebit.demo.security;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import com.izzi.model.security.Authority;
-import com.izzi.model.security.User;
+import no.bluebit.demo.model.security.Authority;
+import no.bluebit.demo.model.security.User;
 
 public final class JwtUserFactory {
 
@@ -34,9 +34,5 @@ public final class JwtUserFactory {
         }
 
         return ls;
-        /*return authorities.stream()
-                .map(authority -> new SimpleGrantedAuthority(authority.getName().name()))
-                .collect(Collectors.toList());
-                */
     }
 }

@@ -1,4 +1,4 @@
-package com.izzi.security.service;
+package no.bluebit.demo.security.service;
 
 import java.io.Serializable;
 

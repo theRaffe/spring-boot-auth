@@ -1,4 +1,4 @@
-package com.izzi.security;
+package no.bluebit.demo.security;
 
 import java.util.Collection;
 import java.util.Date;
@@ -6,7 +6,7 @@ import java.util.Date;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+//import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * Created by stephan on 20.03.16.
@@ -44,7 +44,7 @@ public class JwtUser implements UserDetails {
         this.lastPasswordResetDate = lastPasswordResetDate;
     }
 
-    @JsonIgnore
+    //@JsonIgnore
     public Long getId() {
         return id;
     }
@@ -54,19 +54,19 @@ public class JwtUser implements UserDetails {
         return username;
     }
 
-    @JsonIgnore
+    //@JsonIgnore
     @Override
     public boolean isAccountNonExpired() {
         return true;
     }
 
-    @JsonIgnore
+    //@JsonIgnore
     @Override
     public boolean isAccountNonLocked() {
         return true;
     }
 
-    @JsonIgnore
+    //@JsonIgnore
     @Override
     public boolean isCredentialsNonExpired() {
         return true;
@@ -84,7 +84,7 @@ public class JwtUser implements UserDetails {
         return email;
     }
 
-    @JsonIgnore
+    //@JsonIgnore
     @Override
     public String getPassword() {
         return password;
@@ -100,7 +100,7 @@ public class JwtUser implements UserDetails {
         return enabled;
     }
 
-    @JsonIgnore
+    //@JsonIgnore
     public Date getLastPasswordResetDate() {
         return lastPasswordResetDate;
     }

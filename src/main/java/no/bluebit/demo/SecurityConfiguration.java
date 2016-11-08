@@ -36,6 +36,7 @@
                         "/**/*.css",
                         "/**/*.js"
                 	).permitAll()
+					.antMatchers("/auth").permitAll()
 					.antMatchers("/api/users/login").permitAll()    // Permit access for all to login REST service
 					.antMatchers("/").permitAll()				    // Neccessary to permit access to default document
 				.anyRequest().authenticated().and()				    // All other requests require authentication
