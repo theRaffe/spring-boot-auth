@@ -35,7 +35,8 @@ public class JwtUserDetailsServiceImpl implements UserDetailsService {
         ls2.add(new Authority((long) 2, AuthorityName.ROLE_USER));
 
         lsUsers.add(new User((long) 1, "admin", "adminpass", "admin", "admin", "admin@admin.com", true, new Date(), ls1));
-        lsUsers.add(new User((long) 1, "user", "password", "admin", "admin", "enable@user.com", true, new Date(), ls2));
+        lsUsers.add(new User((long) 2, "user", "password", "admin", "admin", "enable@user.com", true, new Date(), ls2));
+        lsUsers.add(new User((long) 3, "rafael.briones.ext", "nopass", "admin", "admin", "admin@admin.com", true, new Date(), ls1));
     }
 
     /*Autowired

@@ -21,3 +21,11 @@ jwt:
 #  level:
 #    org.springframework:
 #      security: DEBUG
+
+ldap:
+  url: ldap://172.18.193.115:389
+  domain: DC=mmredes,DC=com
+  context:
+    factory: com.sun.jndi.ldap.LdapCtxFactory
+  security:
+    authentication: simple

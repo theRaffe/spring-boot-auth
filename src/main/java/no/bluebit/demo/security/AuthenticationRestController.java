@@ -15,15 +15,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import no.bluebit.demo.security.JwtAuthenticationRequest;
 import no.bluebit.demo.security.JwtTokenUtil;
 //import com.izzi.security.JwtUser;
 import no.bluebit.demo.security.service.JwtAuthenticationResponse;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.MessageFormat;
 
 @RestController
 public class AuthenticationRestController {
+    private static final Logger logger = LoggerFactory.getLogger(AuthenticationRestController.class);
 
     @Value("${jwt.header}")
     private String tokenHeader;
@@ -41,9 +46,12 @@ public class AuthenticationRestController {
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest, Device device) throws AuthenticationException {
 
         // Perform the security
+        final String username = MessageFormat.format("mmredes\\{0}", authenticationRequest.getUsername());
+        logger.info(MessageFormat.format("Perfom authentication of user {0} and pass: {1}", username, authenticationRequest.getPassword())); 
+
         final Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        authenticationRequest.getUsername(),
+                        username,
                         authenticationRequest.getPassword()
                 )
         );
